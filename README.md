@@ -1,4 +1,4 @@
-# SQL Data Warehouse and Analytics Project
+## SQL Data Warehouse and Analytics Project
 
 Welcome to the **Data Warehouse and Analytics Project** Repository! 
 
