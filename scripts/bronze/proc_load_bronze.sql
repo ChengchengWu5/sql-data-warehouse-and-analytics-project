@@ -12,21 +12,11 @@ Example:
 ===============================================================================
 */
 
-
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
     BEGIN TRY
-        TRUNCATE TABLE bronze.customers;
-        BULK INSERT bronze.customers
-        FROM 'D:\sql-warehouse-retail-sales-project\datasets\source2\customers.csv'
-        WITH (
-            FIRSTROW = 2,
-            FIELDTERMINATOR = ',',
-            TABLOCK
-        );
-
-        TRUNCATE TABLE bronze.transactions;
-        BULK INSERT bronze.transactions
+        TRUNCATE TABLE bronze.source1_transactions;
+        BULK INSERT bronze.source1_transactions
         FROM 'D:\sql-warehouse-retail-sales-project\datasets\source1\transactions.csv'
         WITH (
             FIRSTROW = 2,
@@ -34,8 +24,17 @@ BEGIN
             TABLOCK
         );
 
-        TRUNCATE TABLE bronze.products;
-        BULK INSERT bronze.products
+        TRUNCATE TABLE bronze.source2_customers;
+        BULK INSERT bronze.source2_customers
+        FROM 'D:\sql-warehouse-retail-sales-project\datasets\source2\customers.csv'
+        WITH (
+            FIRSTROW = 2,
+            FIELDTERMINATOR = ',',
+            TABLOCK
+        );
+
+        TRUNCATE TABLE bronze.source2_products;
+        BULK INSERT bronze.source2_products
         FROM 'D:\sql-warehouse-retail-sales-project\datasets\source2\products.csv'
         WITH (
             FIRSTROW = 2,
