@@ -23,7 +23,6 @@ BEGIN
             FIELDTERMINATOR = ',',
             TABLOCK
         );
-
         TRUNCATE TABLE bronze.source2_customers;
         BULK INSERT bronze.source2_customers
         FROM 'D:\sql-warehouse-retail-sales-project\datasets\source2\customers.csv'
@@ -32,7 +31,6 @@ BEGIN
             FIELDTERMINATOR = ',',
             TABLOCK
         );
-
         TRUNCATE TABLE bronze.source2_products;
         BULK INSERT bronze.source2_products
         FROM 'D:\sql-warehouse-retail-sales-project\datasets\source2\products.csv'
